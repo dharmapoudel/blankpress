@@ -1,0 +1,212 @@
+/* == quick_reset */
+*{
+	border:none;
+	margin:0;
+	padding:0;
+	outline:none;
+}
+/*  == quick clearfix */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+
+/*  == tab_heading */
+ul.tabs {
+    border: 1px solid #ccc;
+    margin: 10px 0 0;
+	overflow:hidden;
+}
+
+ul.tabs li{
+		display:inline;
+		float:left;
+		margin:0;
+}
+
+.tabs li a{
+		
+		border-right: 1px solid #ccc;
+		color:#21759B;
+		display:block;
+		font-weight:bold;
+		padding: 15px 20px;
+		text-decoration:none;
+}
+.tabs li a:hover,
+.tabs li a:active{
+		color:#D54E21;
+}
+li.active a{
+	color: #000;
+}
+
+/*  == tab_content  */
+.tab_content{
+	border:1px solid #ccc;
+	border-top: 1px solid #f9f9f9;
+	display:none;
+}
+.tab_content h3{
+	padding-left:15px;
+	font: 18px normal;
+}
+.tab_content p{
+	border-top: 1px solid #ccc;
+	margin:0;
+	padding:10px 15px;
+}
+.row > div{
+		overflow:hidden;
+}
+.row{
+	overflow:hidden;
+	padding: 10px 15px;
+}
+.row span{
+	display:block;
+	padding-bottom: 10px;
+	clear:left;
+}
+.row label{
+	display:block;
+	font: 13px bold;
+	padding-bottom: 5px;
+}
+.row input{
+	float:left;
+	margin-right:4px;
+	padding: 6px;
+	width: 30%;
+}
+.row textarea{
+	min-height: 120px;
+	padding: 6px;
+	width: 40%;
+}
+.socialmedia li{
+	overflow:hidden;
+}
+.media_image{
+	background:url('images/placeholder.png') no-repeat center center;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	cursor:pointer;
+    display: block;
+    float: left;
+    height: 28px;
+    margin-right: 4px;
+    width: 31px;
+}
+.no_background{
+	background-image:none;
+}
+.socialmedia_add,
+.webclipicon_add,
+.pkg_media_add{
+	background: url("images/add.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    padding: 5px 5px 5px 30px;
+	text-decoration:none;
+}
+.option_remove,
+.pkg_option_remove{
+    display: block;
+	float:left;
+    padding: 5px 0 5px ;
+	text-decoration:none;
+	width: 60px;
+}
+.option_remove span,
+.pkg_option_remove span{
+	background: url("images/remove.png") no-repeat scroll left center transparent;
+    float: left;
+    height: 10px;
+    margin-right: 6px;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
+    width: 10px;
+}
+.option_remove:hover span,
+.pkg_option_remove:hover span{
+    -webkit-transform: rotate(270deg); 
+	transform: rotate(270deg);
+}
+.tab_content #submit{
+	float:left;
+}
+.spiner{
+	background:url('images/spinner.gif') no-repeat;
+	display:block;
+	float:left;
+}
+.submit_success{
+	color:#060;
+	display:block;
+	float:left;
+	padding:5px 5px 0;
+}
+.tab_content #submit{
+	display:none;
+}
+/* animating the button with css and jquery */
+.progress-button{
+background-color: #21759B;
+    background-image: linear-gradient(to bottom, #2A95C5, #21759B);
+	  border-color: #21759B #21759B #1E6A8D;
+	   border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+	font-size: 12px;
+	 box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset;
+    color: #FFFFFF;
+	height:35px;
+	padding:0 5px;
+	position:relative;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
+	overflow:hidden;
+}
+.progress-bar{
+	background-color:#000;
+	display: block;
+    height: 40px;
+    left: 0;
+	opacity:0.2;
+    position: absolute;
+    top: 0;
+	z-index:3;
+}
+.progress-text{
+	position: relative;
+    z-index: 3;
+	min-width:90px;
+	display:block;
+}
+.progress-button .spiner{
+	bottom: 0;
+    display: inline-block;
+    height: 28px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    width: 32px;
+    z-index: 2;
+}
+
+input.banner_text,
+input.slider_link{ 
+	width: 600px;
+	padding-bottom: 5px;
+}
+
+i.description{
+
+}
+table.row input{
+	width: 400px;
+	margin: 0 15px;
+}
+#adminmenu .wp-menu-image img {
+	width: 16px;
+}
