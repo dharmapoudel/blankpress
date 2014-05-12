@@ -1,6 +1,6 @@
 <?php
 /*-------------------------------------------------
-	BlankPress - Default Taxonomy Archive Template
+	BlankPress - Default Category Template
  --------------------------------------------------*/
 get_header(); ?>
 	

@@ -6,16 +6,21 @@
 
 $(document).ready(function() {
 
+    //stick the footer to the bottom
+    $('.main-content').css({ 'min-height': $(window).height()-$('.footer').outerHeight()-14});
+    // Focus on search form on 404 pages
+    $("body.error404 #s").focus();
+
 //==============================================================
-// TO DO : jQueryNav should be here
+// jQueryNav should be here
 // ==============================================================
 $('.bp-dropdown-menu').jQueryNav({
-	'animationSpeed': 'fast',
-	'activeclass': 'active',
-	'holdtime' :1000,
-	'slidetime' : 100,
-	'responsive': true,
-	'responsiveat': 500
+	animationSpeed: 'slow',
+	activeclass: 'active',
+	holdtime: 1000,
+	slidetime: 200,
+	responsive: false,
+	responsiveBelow: 640
 });
 
 //==============================================================
@@ -88,4 +93,24 @@ function SelectAll(textboxID) {
 		txtbox.focus();			
 	return false;		
 }     
+
     
+(function($) {
+	$("object, embed, .format-video iframe").each(function() {
+		var origVideo = $(this),
+			aspectRatio = origVideo.attr("height") / origVideo.attr("width"),
+			wrapWidth = origVideo.parents().find("p:last").width();
+		if(origVideo.attr("width") > wrapWidth) {
+			origVideo
+				.attr("width", wrapWidth)
+				.attr("height", (wrapWidth * aspectRatio));
+		}
+	});
+})(jQuery);
+
+$(window).load(function() {
+
+// push content down equal to the height of fixed header
+//$('.fixed-header .header+section').animate({'padding-top': $('.header').outerHeight() }, 300);
+
+});

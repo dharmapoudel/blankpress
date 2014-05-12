@@ -1,9 +1,9 @@
 ;(function($, window, document, undefined){
 	"use strict"
 	// variables
-	var  nav, jn, settings,
-		jQueryNav = function(){};
-	var timer= 0;
+	var  nav, jn, settings, timer= 0,
+		jQueryNav = function(){}; 
+
 	jQueryNav.prototype = {
 		init: function(elem, options){
 			nav = $(elem),
@@ -12,7 +12,7 @@
 			this.slidenav();
 		},
 		slidenav: function(){
-			if ($(window).width() > settings.responsiveat) {
+			if (settings.responsiveBelow < $(window).width()) {
 				$('.has-sub-menu')
 				.on(  'mouseenter', function(){
 						if(!$(this).hasClass('active')){
@@ -31,7 +31,7 @@
 							}, 200);
 					});
 			}else{
-				$('.has-sub-menu').off('mouseenter', 'mouseleave');
+				$('.has-sub-menu a').off('mouseenter', 'mouseleave');
 				 $( '.touch-block')
 					.on('touchstart mousedown', function(e) {
 					  e.preventDefault();
@@ -49,7 +49,6 @@
 			}
 			$('.has-sub-menu a').focus(function() {
 			  $(this).sibling('>ul').toggleClass('show').slideToggle(settings.slidetime);
-			  //return $(this).parent('.item-with-ul').find('>ul').addClass("open").show();
 			});
 		},
 		appendtouchblock: function(){
@@ -69,12 +68,12 @@
 		};
 	$.jQueryNav = {
 		defaults: {
-			'animationSpeed': 'fast',
-			'activeclass': 'active',
-			'holdtime' :1000,
-			'slidetime' : 100,
-			'responsive': true,
-			'responsiveat': 500
+			animationSpeed: 'fast',
+			activeclass: 'active',
+			holdtime:1000,
+			slidetime: 100,
+			responsive: true,
+			responsiveBelow: 500
 		}
 	}; 
 })(jQuery, window, document);

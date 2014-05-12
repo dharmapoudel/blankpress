@@ -1,0 +1,44 @@
+/*
+* jQueryTab v2.0
+* Copyright Dharma Poudel (@rogercomred)
+* Free to use under the GPLv3 license.
+* http://www.gnu.org/licenses/gpl-3.0.html
+*/
+
+/* == quick_reset */
+*{ border:none; margin:0; padding:0; outline:none;}
+
+/*  == common styles */
+pre{ border: 1px solid #ddd; box-shadow: 1px 1px 0 #fff, 2px 2px 0 #ddd; margin:10px 0; padding: 10px; background: #fcfcfc; width: 96%; word-wrap: break-word;}
+
+/*  == tab heading */
+.tabs { border: 1px solid #ccc; overflow:hidden; }
+.tabs li{ float:left; margin:0; }
+.tabs li a{ border-left: 1px solid #ccc; color:#21759B; display:block; font-weight:bold; padding: 20px 25px; text-decoration:none; }
+.tabs li:first-child a{ border-left: none; }
+.tabs li a:hover{ color:#D54E21; }
+.tabs .active a{ color: #000; }
+
+/* == accordion */
+.accordion_tabs { display:none; border-bottom: 3px double #ccc; padding: 10px 0; font-weight:bold;}
+a.accordion_tabs:link, a.accordion_tabs:visited{ color: #21759B; text-decoration:none; }
+a.accordion_tabs:hover{ color:#D54E21; }
+a.accordion_tabs.active{ color: #000; }
+
+/*  == tab content  */
+.tab_content_wrapper{ overflow:hidden;  position:relative; transition: all .3s ease-in-out .3s; }
+.tab_content{ transition: all .6s ease-in-out; padding:10px; background:#eee; width:100%;}
+.toggle_display{display:block;}
+.toggle_position{ position:absolute; }
+.toggle_border{ border:1px solid #ccc; border-top: none; }
+
+/* Media Queries
+***********************/
+@media screen and (max-width: 700px) {
+  .accordion_tabs{ display:block; }
+  .tab_content_wrapper{ height:auto !important;}
+  .tab_content{ transition:none; padding:10px 0;}
+  .toggle_display{display:none;}
+  .toggle_position{ position:relative; }
+  .toggle_border{ border:none; }
+}

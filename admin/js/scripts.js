@@ -10,12 +10,12 @@ jQuery(document).ready(function($) {
 	});
 	
 	// initializing my own jQueryTab plugin 
-	$.jQueryTab({
-			responsive:false,		// enable accordian on smaller screens
-			collapsible:false,		// allow all tabs to collapse on accordians
-			usecookie: true,		// remember last active tab using cookie
-			opentabonhover: false	// open tab on hover
-		});
+    $('.tabs-1').jQueryTab({
+        initialTab:1,				// tab to open initially; start count at 1 not 0
+        tabInTransition: 'slideUpIn',
+        tabOutTransition: 'slideUpOut',
+        cookieName: 'active-tab-1' 
+    });
 		
 	// Image Upload
 	$('.tab_content').on('click', '.media_image',  function() {	// when image is clicked
@@ -42,16 +42,11 @@ jQuery(document).ready(function($) {
 	
 	//dynamically add new instance of social media
 	$('.socialmedia_add').on('click', function(){
-		$ul = $(this).parent().find('ul');
-		$ul.append('<li><img class="media_image" src=""><input type="hidden" name ="socialmedia_iconurl[]" class="media_imageurl" value="" /><input type="text" name="socialmedia_name[]"  value="" class="media_text" /><input type="text" name="socialmedia_url[]"  value="" class="media_url" /><a href="#" class="option_remove"><span></span>remove</a></li>');
-		$('.socialmedia > li:last').hide().slideDown('500');
-	});
-	
-	//dynamically add new instance of webclip icon
-	$('.webclipicon_add').on('click', function(){
-		$ul = $(this).parent().find('ul');
-		$ul.append('<li><img class="media_image" src=""><input type="text" name ="webclip_iconurl[]" value="" class="media_imageurl media_url" /><input type="text" name="webclip_iconsize[]"  value="" class="media_text" /><a href="#" class="option_remove"><span></span>remove</a></li>');
-		$ul.children().last().hide().slideDown('500');
+		$ul = $(this).parent('.row').find('ul');
+        $(this).prev('.description').removeClass('hide');
+		$ul.append('<li><img class="media_image" src=""><input type="hidden" name ="socialmedia_iconurl[]" class="media_imageurl" value="" /><input type="text" name="socialmedia_name[]"  value="" class="media_text" /><input type="text" name="socialmedia_url[]"  value="" class="media_url" /><a href="#" class="option_remove"><span>x</span></a></li>');
+		$('.tabs-1').data('jQueryTab').resize();
+    $('.socialmedia > li:last').hide().slideDown('500');
 	});
 	
 		
@@ -106,12 +101,17 @@ jQuery(document).ready(function($) {
 		// remove the social media and webclip icon
 		$('.tab_content').on('click', '.option_remove', function(e){
 			e.preventDefault();
-			$current_li = $(this).closest('li');
+			$current_li = $(this).parent('li');
+            $ul = $current_li.parent('ul');
+            $span = $ul.next('.description');
 			$media_imageurl = $current_li.find('.media_imageurl').val();
 			$media_name = $current_li.find('.media_text').val();
 			$media_url = $current_li.find('.media_url').val();
 			$current_li.slideUp('400', function(){
-				$(this).remove();
+        $(this).remove();
+        if(!$ul.find('li').length){$span.addClass('hide');}
+        $('.tabs-1').data('jQueryTab').resize();
+        
 				if($media_imageurl == '' &&  $media_name == '' &&  $media_url =='') { return; }
 				clearTimeout(timer);
 				timer = setTimeout(function(){
@@ -140,8 +140,8 @@ jQuery(document).ready(function($) {
 	//dynamically add new instance of gallery items
 	$('.pkg_media_add').on('click', function(){
 		$ul = $(this).parent().find('ul');
-		$ul.append('<li><img class="media_image" src=""><input type="text" name ="pkg_media_url[]" value="" class="media_imageurl media_url" /><input type="text" name="pkg_media_title[]"  value="" class="media_text" /><a href="#" class="pkg_option_remove"><span></span>remove</a></li>');
-		$ul.children().last().hide().slideDown('500');
+		$ul.append('<li><img class="media_image" src=""><input type="text" name ="bpslider_imageurl[]" value="" class="media_imageurl bpslider_imageurl" /><input type="text" name ="bpslider_link[]" value="" class="bpslider_link" /><a href="#" class="pkg_option_remove"><span>x</span></a><input type="text" name="bpslider_text[]" value="" class="bpslider_text" /></li>');
+    $ul.children().last().hide().slideDown('500');
 	});
 		
 	// remove the gallery items
@@ -184,6 +184,13 @@ jQuery(document).ready(function($) {
 		$wysiwyg.prepend($excerpt);
 		$excerpt.find('textarea').css('min-height', '100px');
 	}
+    
+	//hide the slug edit box on bpslider
+	if($("input[value='slider']").length > 0){
+		$('#edit-slug-box, #post-body #normal-sortables').hide();
+	}
 	
+    
+    
 	
 }); // end ready function 

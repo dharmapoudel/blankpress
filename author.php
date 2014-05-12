@@ -1,11 +1,11 @@
 <?php
 /*-------------------------------------------------
-	BlankPress - Default Taxonomy Archive Template
+	BlankPress - Default Author Template
  --------------------------------------------------*/
 get_header(); ?>
 	
 	<section class="container group archive-header" >
-    <h1><?php _e('Archive for: ', BP_DOMAIN); ?><strong><?php single_cat_title(); ?></strong></h1>
+    <h1><?php _e( 'Author Archive: ', BP_DOMAIN );?><strong><?php echo get_the_author(); ?></strong></h1>
   </section>
 	<section class="container group" role="main">
     <div class="content">

@@ -9,51 +9,15 @@
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 
-/*  == tab_heading */
-ul.tabs {
-    border: 1px solid #ccc;
-    margin: 10px 0 0;
-	overflow:hidden;
-}
-
-ul.tabs li{
-		display:inline;
-		float:left;
-		margin:0;
-}
-
-.tabs li a{
-		
-		border-right: 1px solid #ccc;
-		color:#21759B;
-		display:block;
-		font-weight:bold;
-		padding: 15px 20px;
-		text-decoration:none;
-}
-.tabs li a:hover,
-.tabs li a:active{
-		color:#D54E21;
-}
-li.active a{
-	color: #000;
-}
-
-/*  == tab_content  */
-.tab_content{
-	border:1px solid #ccc;
-	border-top: 1px solid #f9f9f9;
-	display:none;
-}
 .tab_content h3{
-	padding-left:15px;
 	font: 18px normal;
 }
-.tab_content p{
-	border-top: 1px solid #ccc;
-	margin:0;
-	padding:10px 15px;
+.tab_content p {
+border-top: 1px solid #ccc;
+margin: 10px -10px 0;
+padding: 10px 10px 0;
 }
+.tab_content .hide{ display:none; }
 .row > div{
 		overflow:hidden;
 }
@@ -74,27 +38,27 @@ li.active a{
 .row input{
 	float:left;
 	margin-right:4px;
-	padding: 6px;
 	width: 30%;
+	padding: 10px;
 }
 .row textarea{
 	min-height: 120px;
-	padding: 6px;
+	padding: 10px;
 	width: 40%;
 }
 .socialmedia li{
 	overflow:hidden;
+    position:relative;
 }
 .media_image{
-	background:url('images/placeholder.png') no-repeat center center;
-	border: 1px solid #ccc;
+	background: url('images/placeholder.png') no-repeat center center;
 	border-radius: 3px;
-	cursor:pointer;
-    display: block;
-    float: left;
-    height: 28px;
-    margin-right: 4px;
-    width: 31px;
+	cursor: pointer;
+	display: block;
+	float: left;
+	height: 37px;
+	margin-right: 10px;
+	width: 37px;
 }
 .no_background{
 	background-image:none;
@@ -102,33 +66,47 @@ li.active a{
 .socialmedia_add,
 .webclipicon_add,
 .pkg_media_add{
-	background: url("images/add.png") no-repeat scroll 0 0 transparent;
+	padding: 3px 5px 5px 35px;
+    text-decoration: none;
     display: block;
-    padding: 5px 5px 5px 30px;
-	text-decoration:none;
+    position: relative;
 }
-.option_remove,
-.pkg_option_remove{
-    display: block;
-	float:left;
-    padding: 5px 0 5px ;
-	text-decoration:none;
-	width: 60px;
+.option_remove, 
+.pkg_option_remove {
+    text-decoration: none;
+    position: absolute;
+    right: 5px;
+    top:5px;
 }
+.pkg_media_add span,
+.socialmedia_add span,
 .option_remove span,
 .pkg_option_remove span{
-	background: url("images/remove.png") no-repeat scroll left center transparent;
-    float: left;
-    height: 10px;
-    margin-right: 6px;
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
-    width: 10px;
+    color: #aaa;
+    background: #fcfcfc;
+    padding: 1px 8px 3px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: inset 0 0 4px #ccc;
+    left: 0;
+    top: 0;
 }
+.pkg_media_add span,
+.socialmedia_add span{
+    position:absolute;
+}
+.pkg_media_add:hover span,
+.socialmedia_add:hover span,
 .option_remove:hover span,
 .pkg_option_remove:hover span{
-    -webkit-transform: rotate(270deg); 
-	transform: rotate(270deg);
+    color:#888;
+    border: 1px solid #888;
 }
+.pkg_media_add:hover span{
+    color:#080;
+}
+.tab_content_gallery .pkg_option_remove span{ position:relative;}
 .tab_content #submit{
 	float:left;
 }
@@ -148,21 +126,21 @@ li.active a{
 }
 /* animating the button with css and jquery */
 .progress-button{
-background-color: #21759B;
-    background-image: linear-gradient(to bottom, #2A95C5, #21759B);
-	  border-color: #21759B #21759B #1E6A8D;
-	   border-radius: 3px 3px 3px 3px;
-    border-style: solid;
-    border-width: 1px;
-    cursor: pointer;
-	font-size: 12px;
-	 box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset;
-    color: #FFFFFF;
-	height:35px;
-	padding:0 5px;
+	background-color: #21759B;
+	background-image: linear-gradient(to bottom, #2A95C5, #21759B);
+	border-color: #21759B #21759B #1E6A8D;
+	border-radius: 3px 3px 3px 3px;
+	border-style: solid;
+	border-width: 1px;
+	cursor: pointer;
+	font-size: 14px;
+	box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset;
+	color: #FFFFFF;
+	height:42px;
+	padding:0 10px;
 	position:relative;
-    text-decoration: none;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
 	overflow:hidden;
 }
@@ -183,7 +161,7 @@ background-color: #21759B;
 	display:block;
 }
 .progress-button .spiner{
-	bottom: 0;
+	top: 8px;
     display: inline-block;
     height: 28px;
     margin: 0;
@@ -209,4 +187,65 @@ table.row input{
 }
 #adminmenu .wp-menu-image img {
 	width: 16px;
+}
+
+/* Slider Styles */
+.tab_content_gallery li{ 
+    position: relative;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+.tab_content_gallery  .media_image {
+    background: url('images/placeholder.png') no-repeat center center;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 120px;
+    margin-right: 15px;
+    width: 160px;
+}
+.tab_content_gallery  input {
+    float: left;
+    margin-right: 4px;
+    width: 50%;
+    padding: 8px 10px;
+    display: block;
+    margin-bottom: 7px;
+}
+.row .bpslider_config {
+    width: 100%;
+    min-height: 150px;
+}
+
+/* Media Queries
+***********************/
+@media screen and (max-width: 600px) {
+.row{ padding:0;}
+.row input , .row textarea{  width: 100%; margin: 0 0 10px; padding: 10px;}
+.tab_content_gallery .media_image{ margin: 0 0 10px 0; width: 100%; height: auto; min-height: 150px; max-width: 100%;}
+.media_image { margin-bottom:10px;}
+
+/* slide out the  wordpress menu */
+#wpbody{
+    transition: all ease 0.5s;
+    right:0;
+}
+.auto-fold #adminmenu,
+.auto-fold #adminmenuback, .auto-fold #adminmenuwrap{ 
+display:block !important;
+width: 0px;
+overflow: hidden;
+transition: all ease 0.5s;
+}
+.auto-fold .wp-responsive-open #adminmenu, 
+.auto-fold .wp-responsive-open #adminmenuback, 
+.auto-fold .wp-responsive-open #adminmenuwrap{
+    width: 190px;
+    overflow: visible;
+}
+.auto-fold #adminmenu li.menu-top {
+width: 190px;
+}
 }

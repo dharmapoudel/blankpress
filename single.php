@@ -4,26 +4,27 @@
  --------------------------------------------------*/
 get_header(); ?>
 
-	<div class="container" role="main">
-
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-		
-		<article id="post-<?php the_ID(); ?>" <?php post_class( 'group' ); ?> role="article">
-			<header>
-				<h1><?php the_title(); ?></h1>
-				<?php the_post_thumbnail(); ?>
-				<time datetime="<?php the_time( 'Y-m-d' ) ?>" pubdate><?php the_time( 'F j, Y' ) ?></time>
-			</header>
-			<?php the_content(); ?>
-			<section>
-				<?php comment_form(); ?>
-			</section>
-		</article>
-		
-		<?php endwhile; endif; ?>
-		
-	</div><!-- end content -->
+	<section class="container main-content group" role="main">
+    <div class="content">
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      
+      <article id="post-<?php the_ID(); ?>" <?php post_class( 'group' ); ?> role="article">
+        <header>
+          <h1><?php the_title(); ?></h1>
+          <?php if(is_user_logged_in())  edit_post_link( __( 'edit', BP_DOMAIN ) ); ?>
+        </header>
+        <?php the_post_thumbnail(); ?>
+        <?php  blankpress_post_meta(); ?>
+        <div class="post-content group"><?php the_content(); ?></div>
+        <section class="comment-section">
+          <?php comment_form(); ?>
+        </section>
+      </article>
+      
+      <?php endwhile; endif; ?>
+    </div>
+    
+		<?php  get_sidebar(); ?>
+	</section>
 	
-	<?php // get_sidebar(); ?>
-
 <?php get_footer();
